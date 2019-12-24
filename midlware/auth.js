@@ -34,6 +34,7 @@ module.exports = {
         const password_hash = crypto.createHmac('sha256', secret).update(password).digest("hex");
         const token = crypto.createHmac('sha256', secret).update(password_hash).digest("hex");
         const q = "SELECT * FROM authorize_login('" + email + "','" + password_hash + "','" + token + "');";
+        console.log(q);
         return Rx.Observable.create((observer) => {
             try {
                 req.request(q).subscribe(res => {

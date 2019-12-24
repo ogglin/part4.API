@@ -36,9 +36,6 @@ module.exports = {
         })
     },
     putGoodsO: function (user_id, title, brand_id, category_id, options, price, description, images, type, model_id, address, partcode) {
-        partcode = checkNull(partcode);
-        category_id = checkNull(category_id);
-        brand_id = checkNull(brand_id);
         const q = "SELECT * FROM add_product_to_market("+user_id+",'" + title + "'," + brand_id + "," + category_id + ",'" + options + "'," + price + ",'" +
             description + "','" + images + "','" + type + "'," + model_id + ",'" + address + "','" + partcode+ "');";
         console.log(q);
