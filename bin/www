@@ -11,9 +11,14 @@ const fs = require('fs');
 /*
 * SSL const's
 * */
-const ssl = {
+/*const ssl = {
   key: fs.readFileSync('cert/localhost-key.pem'),
   cert: fs.readFileSync('cert/localhost.pem')
+};*/
+
+const ssl = {
+  key: fs.readFileSync('cert/privkey1.pem'),
+  cert: fs.readFileSync('cert/cert1.pem')
 };
 
 /**
