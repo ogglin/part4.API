@@ -5,7 +5,8 @@ const shell = require('shelljs');
 const d = new Date().getTime();
 const y = new Date().getFullYear();
 const m = new Date().getMonth();
-const path = 'c:/temp/upload/'+y+'/'+m+'/';
+//const path = 'c:/temp/upload/'+y+'/'+m+'/';
+const path = '/var/www/market_part4/assets/upload/'+y+'/'+m+'/';
 module.exports = function upload(req, res) {
     shell.mkdir('-p', path);
     var form = new IncomingForm();
