@@ -38,6 +38,7 @@ module.exports = function (app, io) {
                             gsocket.emit('get', '{"goods":' + JSON.stringify(res) + '}')
                         })
                     } else if(obj['user_id']) {
+                        console.log(obj);
                         db.getUserGoodsO(obj['user_id']).subscribe(res => {
                             gsocket.emit('get', '{"usergoods":' + JSON.stringify(res) + '}')
                         })

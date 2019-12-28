@@ -26,17 +26,17 @@ module.exports = function (app,io) {
                 const obj = JSON.parse(data);
                 if(obj['auth_email']){
                     auth.authLoginO(obj['auth_email'], obj['auth_pass']).subscribe(res => {
-                        _get.emit('get','{"auth_email":'+JSON.stringify(res)+'}')
+                        psocket.emit('put','{"auth_email":'+JSON.stringify(res)+'}')
                     });
                 }
                 if(obj['auth_token']){
                     auth.authToken(obj['auth_token'], 1140).subscribe(res => {
-                        _get.emit('get','{"auth_token":'+JSON.stringify(res)+'}')
+                        psocket.emit('put','{"auth_token":'+JSON.stringify(res)+'}')
                     });
                 }
                 if(obj['mail_send']){
                     db.sendMailO(obj['mail'], obj['subject'], obj['text'], obj['html']).subscribe(res => {
-                        _get.emit('get','{"mail_send":'+JSON.stringify(res)+'}')
+                        psocket.emit('put','{"mail_send":'+JSON.stringify(res)+'}')
                     });
                 }
                 if(obj['mail_send_reg']){
@@ -46,13 +46,13 @@ module.exports = function (app,io) {
                                 _get.emit('get','{"mail_send_reg":'+JSON.stringify(res)+'}')
                             });
                         } else if(res['status'] === 'exist') {
-                            _get.emit('get','{"mail_send_reg":'+JSON.stringify(res)+'}')
+                            psocket.emit('put','{"mail_send_reg":'+JSON.stringify(res)+'}')
                         }
                     });
                 }
                 if(obj['mail_confirm']){
                     auth.userConfirmMailO(obj['mail_confirm']).subscribe(res => {
-                        _get.emit('get','{"mail_confirm":'+JSON.stringify(res)+'}')
+                        psocket.emit('put','{"mail_confirm":'+JSON.stringify(res)+'}')
                     });
                 };
                 if(obj['putCategory']){
