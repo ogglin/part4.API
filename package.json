@@ -20,7 +20,7 @@
     "pug": "^2.0.4",
     "rxjs": "^6.5.3",
     "rxjs-compat": "^6.5.3",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.4.0"
   },
   "devDependencies": {
     "shelljs": "^0.8.3"
